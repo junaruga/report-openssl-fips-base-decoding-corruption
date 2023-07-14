@@ -10,7 +10,10 @@ MCowBQYDK2VwAyEAPUAXw+hDiVqStwqnTRt+vJyYLM8uxJaMwM1V8Sr0Zgw=
 ```
 
 ```
-$ gcc -o ed25519 ed25519.c -lcrypto
+$ gcc \
+  -I /home/jaruga/.local/openssl-3.0.8-debug/include \
+  -L /home/jaruga/.local/openssl-3.0.8-debug/lib \
+  -o ed25519 ed25519.c -lcrypto
 ```
 
 ## Non-FIPS mode
