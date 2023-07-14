@@ -21,6 +21,7 @@ $ gcc \
 ```
 $ OPENSSL_CONF_INCLUDE=/home/jaruga/.local/openssl-3.0.8-debug/ssl \
   OPENSSL_MODULES=/home/jaruga/.local/openssl-3.0.8-debug/lib/ossl-modules \
+  LD_LIBRARY_PATH=/home/jaruga/.local/openssl-3.0.8-debug/lib \
   ./ed25519 ed25519_pub.pem
 [DEBUG] Loaded providers:
   default
@@ -38,6 +39,7 @@ MCowBQYDK2VwAyEAPUAXw+hDiVqStwqnTRt+vJyYLM8uxJaMwM1V8Sr0Zgw=
 $ OPENSSL_CONF=/home/jaruga/.local/openssl-3.0.8-fips-debug/ssl/openssl_fips.cnf \
   OPENSSL_CONF_INCLUDE=/home/jaruga/.local/openssl-3.0.8-fips-debug/ssl \
   OPENSSL_MODULES=/home/jaruga/.local/openssl-3.0.8-fips-debug/lib/ossl-modules \
+  LD_LIBRARY_PATH=/home/jaruga/.local/openssl-3.0.8-fips-debug/lib \
   ./ed25519 ed25519_pub.pem
 [DEBUG] Loaded providers:
   fips
