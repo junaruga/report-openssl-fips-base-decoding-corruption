@@ -3,7 +3,7 @@ openssl_conf = openssl_init
 
 # Need to set the absolute path of the fipsmodule.cnf.
 # https://github.com/openssl/openssl/issues/17704
-.include /home/jaruga/git/openssl2/dest/ssl/fipsmodule.cnf
+.include /home/jaruga/git/openssl/dest/ssl/fipsmodule.cnf
 
 [openssl_init]
 providers = provider_sect
