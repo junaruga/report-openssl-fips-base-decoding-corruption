@@ -24,17 +24,17 @@ ossl_pkey_read_generic(BIO *bio, char *pass)
 
     dctx = OSSL_DECODER_CTX_new_for_pkey(&pkey, "DER", NULL, NULL, 0, NULL, NULL);
     if (!dctx) {
-        fprintf(stderr, "OSSL_DECODER_CTX_new_for_pkey DER failed.\n");
+        fprintf(stderr, "[DEBUG] OSSL_DECODER_CTX_new_for_pkey DER failed.\n");
         goto out;
     }
     if (OSSL_DECODER_CTX_set_pem_password_cb(dctx, PEM_def_callback, ppass) != 1) {
-        fprintf(stderr, "OSSL_DECODER_CTX_set_pem_password_cb DER failed.\n");
+        fprintf(stderr, "[DEBUG] OSSL_DECODER_CTX_set_pem_password_cb DER failed.\n");
         goto out;
     }
 
     /* First check DER */
     if (OSSL_DECODER_from_bio(dctx, bio) == 1) {
-        fprintf(stderr, "OSSL_DECODER_from_bio DER failed.\n");
+        fprintf(stderr, "[DEBUG] OSSL_DECODER_from_bio DER failed.\n");
         goto out;
     }
     BIO_reset(bio);
@@ -44,16 +44,16 @@ ossl_pkey_read_generic(BIO *bio, char *pass)
     dctx = OSSL_DECODER_CTX_new_for_pkey(&pkey, "PEM", NULL, NULL,
                                          EVP_PKEY_KEYPAIR, NULL, NULL);
     if (!dctx) {
-        fprintf(stderr, "OSSL_DECODER_CTX_new_for_pkey PEM failed.\n");
+        fprintf(stderr, "[DEBUG] OSSL_DECODER_CTX_new_for_pkey PEM failed.\n");
         goto out;
     }
     if (OSSL_DECODER_CTX_set_pem_password_cb(dctx, PEM_def_callback, ppass) != 1) {
-        fprintf(stderr, "OSSL_DECODER_CTX_set_pem_password_cb PEM failed.\n");
+        fprintf(stderr, "[DEBUG] OSSL_DECODER_CTX_set_pem_password_cb PEM failed.\n");
         goto out;
     }
     while (1) {
         if (OSSL_DECODER_from_bio(dctx, bio) == 1) {
-            fprintf(stderr, "OSSL_DECODER_from_bio PEM failed.\n");
+            fprintf(stderr, "[DEBUG] OSSL_DECODER_from_bio PEM failed.\n");
             goto out;
         }
         if (BIO_eof(bio))
@@ -70,16 +70,16 @@ ossl_pkey_read_generic(BIO *bio, char *pass)
     dctx = NULL;
     dctx = OSSL_DECODER_CTX_new_for_pkey(&pkey, "PEM", NULL, NULL, 0, NULL, NULL);
     if (!dctx) {
-        fprintf(stderr, "OSSL_DECODER_CTX_new_for_pkey PEM 2 failed.\n");
+        fprintf(stderr, "[DEBUG] OSSL_DECODER_CTX_new_for_pkey PEM 2 failed.\n");
         goto out;
     }
     if (OSSL_DECODER_CTX_set_pem_password_cb(dctx, PEM_def_callback, ppass) != 1) {
-        fprintf(stderr, "OSSL_DECODER_CTX_set_pem_password_cb PEM 2 failed.\n");
+        fprintf(stderr, "[DEBUG] OSSL_DECODER_CTX_set_pem_password_cb PEM 2 failed.\n");
         goto out;
     }
     while (1) {
         if (OSSL_DECODER_from_bio(dctx, bio) == 1) {
-            fprintf(stderr, "OSSL_DECODER_from_bio PEM 2 failed.\n");
+            fprintf(stderr, "[DEBUG] OSSL_DECODER_from_bio PEM 2 failed.\n");
             goto out;
         }
         if (BIO_eof(bio))
