@@ -1,4 +1,4 @@
-# report-openssl-fips-ed25519
+# report-openssl-fips-base-decoding-corruption
 
 This is a C program to reproduce a method to read and decode a x25519 and ed25519 PEM files.
 
